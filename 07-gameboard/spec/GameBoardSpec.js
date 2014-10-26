@@ -131,7 +131,17 @@ describe("clase GameBoard", function(){
             expect(objeto1.f.calls[0].args[0]).toEqual("arg");
             expect(objeto2.f.calls[0].args[0]).toEqual("arg");
         });
-    });    
+    }); 
+
+    it ("detect",function(){
+        var gb = new GameBoard();
+        var objeto1 = {f:function(){return true;}};
+        var objeto2 = {f:function(){return false;}};
+        gb.add(objeto1);
+        gb.add(objeto2);
+        expect(gb.detect(objeto1.f)).toEqual(objeto1);
+        expect(gb.detect(objeto2.f)).not.toEqual(objeto2);
+    });   
 
 });
 
