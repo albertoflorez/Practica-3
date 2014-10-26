@@ -96,14 +96,27 @@ describe("clase GameBoard", function(){
     });
 
     it ("resetRemoved", function(){
-	var gb = new GameBoard();
-	var objeto="hola";
-	gb.add(objeto);
-	gb.resetRemoved();
-	gb.remove(objeto);
-	expect(gb.removed[0]).toEqual("hola");
-    expect(gb.removed.length).toBe(1);
-});
+        var gb = new GameBoard();
+        var objeto="hola";
+        gb.add(objeto);
+        gb.resetRemoved();
+        gb.remove(objeto);
+        expect(gb.removed[0]).toEqual("hola");
+        expect(gb.removed.length).toBe(1);
+    });
+
+    it ("finalizeRemoved", function(){
+        var gb = new GameBoard();
+        var objeto="hola";
+        gb.add(objeto);
+        gb.resetRemoved();
+        gb.remove(objeto);
+        gb.finalizeRemoved();
+        expect(gb.objects[0]).toEqual(undefined);
+        expect(gb.objects.length).toBe(0);
+    });
+
+    
 
 });
 
