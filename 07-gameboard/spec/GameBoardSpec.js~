@@ -166,6 +166,18 @@ describe("clase GameBoard", function(){
         });
     });
 
+    it ("overlap",function(){
+        var gb = new GameBoard();
+        var objeto1 = {x:100,y:50,h:25,w:10};
+        var objeto2 = {x:100,y:50,h:25,w:10};
+        var objeto3 = {x:50,y:100,h:25,w:10}
+        gb.add(objeto1);
+        gb.add(objeto2);
+        gb.add(objeto3);
+        expect(gameBoard.overlap(objeto1,objeto2)).toEqual(true);
+        expect(gameBoard.overlap(objeto1,objeto3)).toEqual(false);
+    });
+
 });
 
 
