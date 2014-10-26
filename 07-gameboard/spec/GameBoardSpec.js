@@ -146,14 +146,25 @@ describe("clase GameBoard", function(){
 
     it ("step",function(){
         var gb = new GameBoard();
-        var objeto1 = {};
+        var objeto = {};
         spyOn(gb,"step");
-        gb.add(objeto1);
+        gb.add(objeto);
         gb.step(ctx);
         runs(function(){
             expect(gb.step).toHaveBeenCalled();
         });
     });   
+
+    it ("draw",function(){
+        var gb = new GameBoard();
+        var objeto = {};
+        spyOn(gb,"draw");
+        gb.add(objeto);
+        gb.draw(ctx);
+        runs(function(){
+            expect(gb.draw).toHaveBeenCalled();
+        });
+    });
 
 });
 
