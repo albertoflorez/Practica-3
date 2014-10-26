@@ -90,7 +90,7 @@ describe("clase GameBoard", function(){
         var objeto = "hola";
 	    spyOn(gb, "remove");
         gb.remove(objeto);
-        expect(gb.remove).toHaveBeenCalled();
+        epect(gb.remove).toHaveBeenCalled();
 	    expect(gb.objects[0]).toEqual(undefined);
 	    expect(gb.objects.length).toBe(0);
     });
