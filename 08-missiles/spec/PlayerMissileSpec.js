@@ -55,6 +55,24 @@ describe("clase PlayerMissile", function(){
 		spyOn(b, "remove"); 
 		misil.step(1.0); 
 		expect(b.remove).toHaveBeenCalled();
+		expect(b.remove.calls[0].args[0]).toEqual(misil);
+	});
+
+    
+
+    it("draw", function(){
+		SpriteSheet = {
+			map : {missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 }},
+			draw: function() {}
+		};
+		var misil = new PlayerMissile(0,0);
+		spyOn(SpriteSheet, "draw");
+		misil.draw(ctx); 
+		expect(SpriteSheet.draw).toHaveBeenCalled();
+		expect(SpriteSheet.draw.calls[0].args[0]).toEqual(ctx);
+		expect(SpriteSheet.draw.calls[0].args[1]).toEqual("missile");
+		expect(SpriteSheet.draw.calls[0].args[2]).toEqual(misil.x);
+		expect(SpriteSheet.draw.calls[0].args[3]).toEqual(misil.y);
 	});
 
 });
