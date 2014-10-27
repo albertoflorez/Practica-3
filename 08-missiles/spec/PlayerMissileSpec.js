@@ -75,4 +75,24 @@ describe("clase PlayerMissile", function(){
 		expect(SpriteSheet.draw.calls[0].args[3]).toEqual(misil.y);
 	});
 
+    
+    it("requesito disparo", function(){
+        Game = {width: 320, height: 480, keys: {'fire': false}};
+        SpriteSheet = {
+			map : {missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 },
+                    ship: { sx: 0, sy: 0, w: 37, h: 42, frames: 1 }}
+		};
+        var nave = new PlayerShip();
+		var b = {add: function(obj) {}};
+		nave.board=b;
+		spyOn(b, "add");
+        nave.step(1);
+		expect(b.add).not.toHaveBeenCalled();
+        Game.keys['fire'] = true;
+        nave.step(1);
+		expect(b.add).toHaveBeenCalled();
+		expect(b.add).toHaveBeenCalled();
+        nave.step(1);
+    });
+
 });
