@@ -83,7 +83,7 @@ describe("clase PlayerMissile", function(){
                     ship: { sx: 0, sy: 0, w: 37, h: 42, frames: 1 }}
 		};
         var nave = new PlayerShip();
-		var b = {add: function() {}};
+		var b = {contador:[],add: function(obj) {contador.push();}};
 		nave.board=b;
 		spyOn(b, "add");
         nave.step(1);
@@ -93,7 +93,7 @@ describe("clase PlayerMissile", function(){
 		expect(b.add).toHaveBeenCalled();
 		expect(b.add).toHaveBeenCalled();
         nave.step(1);
-	    expect(b.add.calls.length).toEqual(2);
+        expect(b.contador.length).toBe(2);
     });
 
 });
