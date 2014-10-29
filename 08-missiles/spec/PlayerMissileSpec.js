@@ -49,7 +49,7 @@ describe("clase PlayerMissile", function(){
     }); 
 
     it("step", function(){
-		var misil = new PlayerMissile(0,0);
+		var misil = new PlayerMissile(2,150);
 		var b = {remove: function(obj) {}};
 		misil.board=b;
 		spyOn(b, "remove"); 
