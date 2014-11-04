@@ -40,7 +40,12 @@ describe("clase PlayerMissile", function(){
 
 	    ctx = canvas.getContext('2d');
 	    expect(ctx).toBeDefined();
-	
+        
+		SpriteSheet = {
+			map : {missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 }},
+			draw: function() {}
+		};	
+
 	    oldGame = Game;
     });
 
@@ -61,10 +66,6 @@ describe("clase PlayerMissile", function(){
     
 
     it("draw", function(){
-		SpriteSheet = {
-			map : {missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 }},
-			draw: function() {}
-		};
 		var misil = new PlayerMissile(0,0);
 		spyOn(SpriteSheet, "draw");
 		misil.draw(ctx); 

@@ -42,7 +42,6 @@ describe("clase PlayerMissile", function(){
 	    expect(ctx).toBeDefined();
 	
 	    oldGame = Game;
-	    SpriteSheet.load (sprites,function(){});
     });
 
     afterEach(function(){
